@@ -25,11 +25,9 @@ export default function LoginPage({
       </div>
       <input id="password" name="password" type="password" minLength={6} required />
       </div>
-      {useSearchParams.message && (
         <div className="text-sm font-medium text-destructive">
-        {useSearchParams.message}
         </div>
-      )}
+
       <button formAction={emaillogin} className="w-full">Log in</button>
       </form>
       <div className="mt-4 text-center text-sm">
