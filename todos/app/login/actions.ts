@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 import { Provider } from '@supabase/supabase-js'
 
-export async function login(formData: FormData) {
+export async function emaillogin(formData: FormData) {
   const supabase = createClient()
 
   // type-casting here for convenience
@@ -19,7 +19,7 @@ export async function login(formData: FormData) {
   const { error } = await supabase.auth.signInWithPassword(data)
 
   if (error) {
-    redirect('/error')
+    redirect('/login?message=authentication failed')
   }
 
   revalidatePath('/', 'layout')
