@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation'
 export default function LoginPage({
 }) {
   return (
-    <section className="h-[calc(100vh-57px)] flex justify-center items-center">
       <Card className="mx-auto max-w-sm">
         <CardHeader>
           <CardTitle className="text-2xl">login</CardTitle>
@@ -27,7 +26,6 @@ export default function LoginPage({
       </div>
         <div className="text-sm font-medium text-destructive">
         </div>
-
       <button formAction={emaillogin} className="w-full">Log in</button>
       </form>
       <div className="mt-4 text-center text-sm">
@@ -39,6 +37,5 @@ export default function LoginPage({
       </button>
     </CardContent>
     </Card>
-    </Section>
   );
 }
