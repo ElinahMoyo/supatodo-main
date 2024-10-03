@@ -31,7 +31,6 @@ export default function LoginPage({
       <div className="mt-4 text-center text-sm">
         Don&apos;t have an account?{" "}
       </div>
-      <button formAction={signup}>Sign up</button>
       <button form="login-form" className="underline">
         sign up
       </button>
