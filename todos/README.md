@@ -4,7 +4,7 @@
  <img src="https://imgur.com/7Rayrls.png" width="400">
 </p>
 
-In this repo is a simple implementation of a minimal todo app, used for demo purposes, Features include:
+In this repository is a simple implementation of a minimal todo app, used for demo purposes, Features include:
 
 - Server Actions
 - useFormState
@@ -48,9 +48,4 @@ Hopefully, from this project and the video, you can learn:
 - Supabase Auth and Database
 - useFormState
 - useOptimistic
-
-## YouTube
-
-You can follow along with me as we build this on YouTube. The commits will line up with the YouTube chapters so you can easily see what changed in each section.
-
-[![YouTube video](https://img.youtube.com/vi/A6-56miVA_0/0.jpg)](<[https://www.youtube.com/watch?v=A6-56miVA_0](https://youtu.be/A6-56miVA_0)>)
+Nice doing business with you.
