@@ -1,13 +1,38 @@
-import { login, signup } from './actions'
+import { CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { emaillogin, signup } from './actions'
+import { useSearchParams } from 'next/navigation'
 
-export default function LoginPage() {
+export default function LoginPage({
+  searchParams: {message: string };
+}) {
   return (
-    <form>
+    <section className="h-[calc(100vh-57px)] flex justify-center items-center">
+      <Card className="mx-auto max-w-sm">
+        <CardHeader>
+          <CardTitle className="text-2xl">login</CardTitle>
+          <CardDescription>
+            Enter your email to login
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+        <form>    
+    <div className="grid gap-2">
       <label htmlFor="email">Email:</label>
-      <input id="email" name="email" type="email" required />
+      <input id="email" name="email" type="email" placeholder="y@example.com" required />
+      </div>
+      <div className="grid gap-2">
+        <div className="flex items-center">
       <label htmlFor="password">Password:</label>
-      <input id="password" name="password" type="password" required />
-      <button formAction={login} className="w-full">Log in</button>
+      </div>
+      <input id="password" name="password" type="password" minLength={6} required />
+      </div>
+      {SearchParams.message && (
+        <div className="text-sm font-medium text-destructive">
+        {SearchParams.message}
+        </div>
+      )}
+      <button formAction={emaillogin} className="w-full">Log in</button>
+      </form>
       <div className="mt-4 text-center text-sm">
         Don&apos;t have an account?{" "}
       </div>
@@ -15,6 +40,9 @@ export default function LoginPage() {
       <button form="login-form" className="underline">
         sign up
       </button>
-    </form>
-  )
+    </div>
+    </CardContent>
+    </Card>
+    </section>
+  );
 }
