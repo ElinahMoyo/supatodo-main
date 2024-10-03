@@ -1,9 +1,8 @@
-import { CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { emaillogin, signup } from './actions'
 import { useSearchParams } from 'next/navigation'
 
 export default function LoginPage({
-  searchParams: {message: string };
 }) {
   return (
     <section className="h-[calc(100vh-57px)] flex justify-center items-center">
@@ -26,9 +25,9 @@ export default function LoginPage({
       </div>
       <input id="password" name="password" type="password" minLength={6} required />
       </div>
-      {SearchParams.message && (
+      {useSearchParams.message && (
         <div className="text-sm font-medium text-destructive">
-        {SearchParams.message}
+        {useSearchParams.message}
         </div>
       )}
       <button formAction={emaillogin} className="w-full">Log in</button>
@@ -40,9 +39,8 @@ export default function LoginPage({
       <button form="login-form" className="underline">
         sign up
       </button>
-    </div>
     </CardContent>
     </Card>
-    </section>
+    </Section>
   );
 }
