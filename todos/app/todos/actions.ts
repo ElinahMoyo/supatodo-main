@@ -61,7 +61,7 @@ export async function updateTodo(todo: Todo) {
     }
 
     const { error } = await supabase.from("todos").insert({
-        task: text,
+        task: Text,
         user_id: user.id,
     })
 
