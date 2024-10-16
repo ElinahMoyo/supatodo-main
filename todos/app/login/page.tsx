@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { emaillogin, signup } from './actions'
 import { useSearchParams } from 'next/navigation'
+import { OAuthButtons } from './oauth-signin';
 
 export default function LoginPage({
 }) {
@@ -12,8 +13,9 @@ export default function LoginPage({
             Enter your email to login
           </CardDescription>
         </CardHeader>
-        <CardContent>
-        <form>    
+        <CardContent className='flex flex-col gap-4'>
+        <form> 
+          <OAuthButtons />   
     <div className="grid gap-2">
       <label htmlFor="email">Email:</label>
       <input id="email" name="email" type="email" placeholder="y@example.com" required />
@@ -28,7 +30,7 @@ export default function LoginPage({
         </div>
       <button formAction={emaillogin} className="w-full">Log in</button>
       </form>
-      <div className="mt-4 text-center text-sm">
+      <div className="text-center text-sm">
         Don&apos;t have an account?{" "}
       </div>
       <button form="login-form" className="underline">

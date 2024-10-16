@@ -1,6 +1,4 @@
   'use server'
-
-import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
@@ -21,9 +19,6 @@ export async function emaillogin(formData: FormData) {
   if (error) {
     redirect('/login?message=authentication failed')
   }
-
-  revalidatePath('/', 'layout')
-  redirect('/todos')
 }
 
 export async function signup(formData: FormData) {
@@ -39,11 +34,15 @@ export async function signup(formData: FormData) {
   const { error } = await supabase.auth.signUp(data)
 
   if (error) {
-    redirect('/error')
+    redirect('/login')
   }
+}
 
-  revalidatePath('/', 'layout')
-  redirect('/')
+export async function signOut() {
+  const supabase = createClient();
+  await supabase.auth.signOut();
+  redirect('/login')
+
 }
 
 export async function oAuthSignIn(provider: Provider) {
@@ -51,9 +50,17 @@ export async function oAuthSignIn(provider: Provider) {
     return redirect('/login?message=No provider selected')
   }
   const supabase = createClient();
-  const redirectUrl = getUrl("/auth/callback")
+  const redirectUrl = getURL("/auth/callback")
+  const {data, error} = await supabase.auth.signInWithOAuth({
+    provider,
+    options: {
+      redirectTo: redirectUrl,
+    }
+  })
+
+if (error) {
+  redirect('/login?message=Authentication failed')
 }
 
-function getUrl(arg0: string) {
-  throw new Error('Function not implemented.')
+return redirect(data.url)
 }
