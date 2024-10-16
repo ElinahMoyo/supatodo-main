@@ -1,6 +1,5 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import {label} from "@/components/ui/label";
 import { emaillogin, signup } from './actions'
 import { OAuthButtons } from './oauth-signin';
 import {redirect} from 'next/navigation';
