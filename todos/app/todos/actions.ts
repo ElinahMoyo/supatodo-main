@@ -60,9 +60,9 @@ export async function updateTodo(todo: Todo) {
         throw new Error("User is not logged in")
     }
 
-    const { error } = await supabase.from("todos").update(todo).match({
+    const { error } = await supabase.from("todos").insert({
+        task: text,
         user_id: user.id,
-        id: todo.id
     })
 
     if (error) {
