@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
 import { Provider } from '@supabase/supabase-js'
+import { getURL } from '@/utils/supabase/helpers'
 
 export async function emaillogin(formData: FormData) {
   const supabase = createClient()
